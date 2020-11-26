@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+
+
+	// 아이디를 잘못 입력한 횟수 저장하는 변수선언
+	var id_error_cnt = 0;
+
+	var id_error_max = 5;
+	// 암호 잘못 입력한 횟수 저장하는 변수선언
+	var pwd_error_cnt = 0;
+
+	var pwd_error_max =5;
+
+	// 데이터를업데이트 시켜야된다.
+	// 아이디를 하나 잘못입력하면 아이디언더바에러에 시엔티 쁠쁠  
+	// 3이 너머가면 안물어보고 빠지겠다는거에요
+
+	// 빠져나온다음 어떡할래? 빠져나온다면 그다음 또 암호를 물어봐야겠지	
+
+	//합당한 아이디를 입력받을 때 까지 반복하는 반복문 선언
+	//데이터가 있으면 변수는 무조건 있어야 한다.
+
+	while(true){
+
+		var id = prompt("아이디 입력 요망","");
+
+		if(id=="abc"){
+			break;
+		}else{
+			id_error_cnt++;
+			alert("아이디를"+ id_error_cnt+"회 틀리셨습니다.\n(아이디 "+ id_error_max+"회 이상 틀릴시 로그인 정지)";
+		}
+
+		//만약 아아디 잚못입력횟수가 3이상이면?
+		if (id_error_cnt>=id_error_max){
+			
+			break;
+
+		}
+	}
+		
+// 만약 아이디 잘못 입력 횟수가 3회미만이라면?
+if(id_error_cnt<id_error_max){
+
+	while(true){
+
+		var pwd = prompt("암호 입력 요망","");
+		if (pwd=="123"){
+			break;
+		}else{
+			pwd_error_cnt++;
+			alert("암호를"+ id_error_cnt+"회 틀리셨습니다.\n(암호 "+ pwd_error_max +"회 이상 틀릴시 로그인 정지)");
+
+		} 
+		if(pwd_error_cnt>=pwd_error_max){
+			break;
+		}
+	}
+}
+if(id_error_cnt>=id_error_max){
+	document.write("아이디"+id_error_cnt+"회 잘못 입력으로 로그인 실패");
+}else if(pwd_error_cnt>=pwd_error_max){
+	document.write("암호"+pwd_error_cnt+"회 잘못 입력으로 로그인 실패");
+}else{
+	document.write(id+"님 어서오삼 방가");
+}
+
+
+</script>
+
+
+</body>
+</html>
+
+
